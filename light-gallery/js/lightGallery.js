@@ -297,8 +297,12 @@
                 }
                 if (typeof dataSubHtml !== 'undefined' && dataSubHtml !== null) {
                     var fL = dataSubHtml.substring(0, 1);
-                    if (fL == '.' || fL == '#') {
-                        dataSubHtml = $(dataSubHtml).html();
+                    if (fL == '.') { 
+                        /* class-based: search only current item’s children.
+                        To do: support figure/figcaption w/o classes */
+                        dataSubHtml = $children.eq(index).find(dataSubHtml);
+                    } else if (fL == '#') {
+                      dataSubHtml = $(dataSubHtml);
                     } else {
                         dataSubHtml = dataSubHtml;
                     }
