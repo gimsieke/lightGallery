@@ -327,6 +327,7 @@
             loadObj: function (r, index) {
                 var $this = this;
                 $slide.eq(index).find('.object').on('load error', function () {
+                    $(this).css('max-width', $(this)[0].naturalWidth);
                     $slide.eq(index).addClass('complete');
                 });
                 if (r === false) {
