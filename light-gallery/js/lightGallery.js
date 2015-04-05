@@ -306,7 +306,7 @@
                     } else {
                         dataSubHtml = dataSubHtml;
                     }
-                    $slide.eq(index).append(dataSubHtml);
+                    $slide.eq(index).append(dataSubHtml.clone());
                 }
             },
             preload: function (index) {
@@ -327,7 +327,7 @@
             loadObj: function (r, index) {
                 var $this = this;
                 $slide.eq(index).find('.object').on('load error', function () {
-                    $(this).css('max-width', $(this)[0].naturalWidth);
+                    $(this).css('max-width', $(this)[0].naturalWidth / window.devicePixelRatio);
                     $slide.eq(index).addClass('complete');
                 });
                 if (r === false) {
