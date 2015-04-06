@@ -412,7 +412,7 @@
                                 }
                             }
                             if (typeof dataHtml !== 'undefined' && dataHtml !== null) {
-                                $slide.eq(index).append('<div class="video-cont" style="max-width:' + settings.videoMaxWidth + ' !important;"><div class="video">' + dataHtml + '</div></div>');
+                                $slide.eq(index).append('<div class="video-cont" style="max-width:' + settings.videoMaxWidth / window.devicePixelRatio + ' !important;"><div class="video">' + dataHtml + '</div></div>');
                             }
                             $this.addHtml(index);
                             $slide.eq(index).addClass('loaded complete');
